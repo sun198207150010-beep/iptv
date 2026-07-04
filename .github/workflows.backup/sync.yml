@@ -1,0 +1,16 @@
+name: 同步 vbskycn/iptv
+
+on:
+  schedule:
+    - cron: "0 8 * * *"
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: 同步上游仓库
+        uses: TG908/merge-upstream@v1
+        with:
+          upstream: vbskycn/iptv
+          branch: master
